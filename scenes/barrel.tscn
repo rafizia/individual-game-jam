@@ -1,0 +1,92 @@
+[gd_scene load_steps=13 format=3 uid="uid://3d76rwy1k5r6"]
+
+[ext_resource type="Script" path="res://scripts/barrel.gd" id="1_0kvu2"]
+[ext_resource type="Texture2D" uid="uid://c33u352ixab1i" path="res://assets/Destructible Objects Sprite Sheet.png" id="1_oatmu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ppm80"]
+atlas = ExtResource("1_oatmu")
+region = Rect2(64, 64, 64, 58)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f25a5"]
+atlas = ExtResource("1_oatmu")
+region = Rect2(128, 64, 64, 58)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v5ibd"]
+atlas = ExtResource("1_oatmu")
+region = Rect2(192, 64, 64, 58)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mngll"]
+atlas = ExtResource("1_oatmu")
+region = Rect2(256, 64, 64, 58)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e5pb6"]
+atlas = ExtResource("1_oatmu")
+region = Rect2(320, 64, 64, 58)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ov30"]
+atlas = ExtResource("1_oatmu")
+region = Rect2(384, 64, 64, 58)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yad8l"]
+atlas = ExtResource("1_oatmu")
+region = Rect2(0, 64, 64, 58)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lwgup"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ppm80")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f25a5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v5ibd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mngll")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e5pb6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ov30")
+}],
+"loop": false,
+"name": &"break",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yad8l")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k8g1y"]
+size = Vector2(19, 21)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0s54w"]
+size = Vector2(19, 21)
+
+[node name="Barrel" type="StaticBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_lwgup")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1.5, 7.5)
+shape = SubResource("RectangleShape2D_k8g1y")
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("1_0kvu2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(2, 8)
+shape = SubResource("RectangleShape2D_0s54w")
+
+[connection signal="area_entered" from="Area2D" to="Area2D" method="_on_area_entered"]
