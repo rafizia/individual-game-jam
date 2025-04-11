@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=3 uid="uid://cj4ay5ilil0qb"]
+
+[ext_resource type="Texture2D" uid="uid://chrylu2vfel1t" path="res://assets/2D Pixel Dungeon Asset Pack/items and trap_animation/torch/candlestick_2_1.png" id="1_i20g1"]
+[ext_resource type="Texture2D" uid="uid://bguninro36gmu" path="res://assets/2D Pixel Dungeon Asset Pack/items and trap_animation/torch/candlestick_2_2.png" id="2_56aif"]
+[ext_resource type="Texture2D" uid="uid://352d3veo8lkl" path="res://assets/2D Pixel Dungeon Asset Pack/items and trap_animation/torch/candlestick_2_3.png" id="3_hi2mb"]
+[ext_resource type="Texture2D" uid="uid://bmv8jrt6qkshx" path="res://assets/2D Pixel Dungeon Asset Pack/items and trap_animation/torch/candlestick_2_4.png" id="4_7j5xj"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3arvo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_i20g1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_56aif")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_hi2mb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_7j5xj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jgxfy"]
+size = Vector2(9, 5)
+
+[node name="CandleStick" type="StaticBody2D"]
+scale = Vector2(1.3, 1.3)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_3arvo")
+autoplay = "default"
+frame_progress = 0.255802
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 5.5)
+shape = SubResource("RectangleShape2D_jgxfy")

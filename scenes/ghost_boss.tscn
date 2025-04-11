@@ -1,0 +1,219 @@
+[gd_scene load_steps=30 format=3 uid="uid://dt5ee5jjidodv"]
+
+[ext_resource type="Texture2D" uid="uid://c25peeix0dovg" path="res://assets/ghostIce_all.png" id="1_8g2x3"]
+[ext_resource type="Script" path="res://scripts/ghost_boss/ghost_boss.gd" id="1_12663"]
+[ext_resource type="Script" path="res://scripts/enemy_hitbox.gd" id="18_rs6vh"]
+[ext_resource type="Script" path="res://scripts/enemy_attack_area.gd" id="19_y18ug"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sbdui"]
+atlas = ExtResource("1_8g2x3")
+region = Rect2(256, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6fglu"]
+atlas = ExtResource("1_8g2x3")
+region = Rect2(224, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mimym"]
+atlas = ExtResource("1_8g2x3")
+region = Rect2(192, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8t0no"]
+atlas = ExtResource("1_8g2x3")
+region = Rect2(160, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ki3bw"]
+atlas = ExtResource("1_8g2x3")
+region = Rect2(128, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yourr"]
+atlas = ExtResource("1_8g2x3")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gia77"]
+atlas = ExtResource("1_8g2x3")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bd3bq"]
+atlas = ExtResource("1_8g2x3")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3vc6b"]
+atlas = ExtResource("1_8g2x3")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v5d5g"]
+atlas = ExtResource("1_8g2x3")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8jc8j"]
+atlas = ExtResource("1_8g2x3")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mt7jh"]
+atlas = ExtResource("1_8g2x3")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2jmxq"]
+atlas = ExtResource("1_8g2x3")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iexbt"]
+atlas = ExtResource("1_8g2x3")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_coelu"]
+atlas = ExtResource("1_8g2x3")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jfomp"]
+atlas = ExtResource("1_8g2x3")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kduyo"]
+atlas = ExtResource("1_8g2x3")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5p6v0"]
+atlas = ExtResource("1_8g2x3")
+region = Rect2(256, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uqfve"]
+atlas = ExtResource("1_8g2x3")
+region = Rect2(224, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1efku"]
+atlas = ExtResource("1_8g2x3")
+region = Rect2(192, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uv63l"]
+atlas = ExtResource("1_8g2x3")
+region = Rect2(160, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ou47c"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sbdui")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6fglu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mimym")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8t0no")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ki3bw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yourr")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gia77")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bd3bq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3vc6b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v5d5g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8jc8j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mt7jh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2jmxq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iexbt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_coelu")
+}],
+"loop": false,
+"name": &"dead",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jfomp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kduyo")
+}],
+"loop": false,
+"name": &"hit",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5p6v0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uqfve")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1efku")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uv63l")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 8.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4h0f0"]
+radius = 5.09902
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dex0r"]
+size = Vector2(36, 25.3334)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_583a7"]
+size = Vector2(31, 25.3334)
+
+[node name="Ghost_Boss" type="CharacterBody2D"]
+scale = Vector2(2, 2)
+script = ExtResource("1_12663")
+health = 20
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ou47c")
+animation = &"hit"
+frame = 1
+frame_progress = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, 2)
+shape = SubResource("CircleShape2D_4h0f0")
+
+[node name="Hitbox" type="Area2D" parent="."]
+script = ExtResource("18_rs6vh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(-1, 2.33332)
+shape = SubResource("RectangleShape2D_dex0r")
+
+[node name="AttackArea" type="Area2D" parent="."]
+script = ExtResource("19_y18ug")
+damage = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
+position = Vector2(-1.5, 2.33332)
+shape = SubResource("RectangleShape2D_583a7")
+disabled = true
+
+[connection signal="area_entered" from="Hitbox" to="Hitbox" method="_on_area_entered"]
+[connection signal="body_entered" from="AttackArea" to="AttackArea" method="_on_body_entered"]

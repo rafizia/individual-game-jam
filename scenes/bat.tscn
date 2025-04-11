@@ -1,11 +1,11 @@
 [gd_scene load_steps=37 format=3 uid="uid://c02bfjgwoqasr"]
 
-[ext_resource type="Script" path="res://scripts/bat.gd" id="1_ljg6e"]
+[ext_resource type="Script" path="res://scripts/enemy_AI.gd" id="1_r3pq8"]
 [ext_resource type="Texture2D" uid="uid://bbcayyntsngrj" path="res://assets/Bat/Bat with VFX/Bat-IdleFly.png" id="1_snjcy"]
 [ext_resource type="Texture2D" uid="uid://dc12vh8clxpbn" path="res://assets/Bat/Bat with VFX/Bat-Hurt.png" id="2_2gyyo"]
 [ext_resource type="Texture2D" uid="uid://bwomwui1x3fww" path="res://assets/Bat/Bat with VFX/Bat-Die.png" id="2_3m2f3"]
-[ext_resource type="Script" path="res://scripts/bat_hitbox.gd" id="4_ccyqh"]
-[ext_resource type="Script" path="res://scripts/bat_attack_area.gd" id="6_k11ra"]
+[ext_resource type="Script" path="res://scripts/enemy_hitbox.gd" id="5_jgg7q"]
+[ext_resource type="Script" path="res://scripts/enemy_attack_area.gd" id="6_siqbc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fdlbo"]
 atlas = ExtResource("2_3m2f3")
@@ -215,9 +215,9 @@ radius = 4.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x0rek"]
 size = Vector2(13, 29)
 
-[node name="Bat" type="CharacterBody2D"]
+[node name="Bat" type="CharacterBody2D" groups=["enemy"]]
 scale = Vector2(0.8, 0.8)
-script = ExtResource("1_ljg6e")
+script = ExtResource("1_r3pq8")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_2yl1a")
@@ -228,13 +228,13 @@ frame_progress = 0.889521
 shape = SubResource("CircleShape2D_vkpn3")
 
 [node name="Hitbox" type="Area2D" parent="."]
-script = ExtResource("4_ccyqh")
+script = ExtResource("5_jgg7q")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 shape = SubResource("RectangleShape2D_nlx10")
 
 [node name="AttackArea" type="Area2D" parent="."]
-script = ExtResource("6_k11ra")
+script = ExtResource("6_siqbc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
 position = Vector2(-0.5, 4.5)

@@ -1,6 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://3d76rwy1k5r6"]
+[gd_scene load_steps=14 format=3 uid="uid://3d76rwy1k5r6"]
 
 [ext_resource type="Script" path="res://scripts/barrel.gd" id="1_0kvu2"]
+[ext_resource type="Script" path="res://scripts/barrel_break.gd" id="1_2kqcq"]
 [ext_resource type="Texture2D" uid="uid://c33u352ixab1i" path="res://assets/Destructible Objects Sprite Sheet.png" id="1_oatmu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ppm80"]
@@ -58,6 +59,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_7ov30")
+}],
+"loop": true,
+"name": &"broke",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_yad8l")
 }],
 "loop": true,
@@ -71,11 +80,12 @@ size = Vector2(19, 21)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0s54w"]
 size = Vector2(19, 21)
 
-[node name="Barrel" type="StaticBody2D"]
+[node name="Barrel" type="StaticBody2D" groups=["object"]]
+script = ExtResource("1_2kqcq")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_lwgup")
-animation = &"idle"
+animation = &"broke"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

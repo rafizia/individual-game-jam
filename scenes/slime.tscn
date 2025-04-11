@@ -1,9 +1,9 @@
 [gd_scene load_steps=26 format=3 uid="uid://25rntgrpk331"]
 
+[ext_resource type="Script" path="res://scripts/enemy_AI.gd" id="1_8evyq"]
 [ext_resource type="Texture2D" uid="uid://dy8q6br4f666w" path="res://assets/woodland monsters sprite sheet/slime_spritesheet.png" id="1_831ev"]
-[ext_resource type="Script" path="res://scripts/slime/slime.gd" id="1_h6h1u"]
-[ext_resource type="Script" path="res://scripts/slime/slime_hitbox.gd" id="2_d6q1m"]
-[ext_resource type="Script" path="res://scripts/slime/slime_attack_area.gd" id="4_q4xuk"]
+[ext_resource type="Script" path="res://scripts/enemy_hitbox.gd" id="3_uin0b"]
+[ext_resource type="Script" path="res://scripts/enemy_attack_area.gd" id="4_iy1lj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1j8x7"]
 atlas = ExtResource("1_831ev")
@@ -150,9 +150,9 @@ radius = 4.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hlqv8"]
 size = Vector2(13, 29)
 
-[node name="Slime" type="CharacterBody2D"]
+[node name="Slime" type="CharacterBody2D" groups=["enemy"]]
 scale = Vector2(0.5, 0.5)
-script = ExtResource("1_h6h1u")
+script = ExtResource("1_8evyq")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_livp8")
@@ -162,13 +162,13 @@ animation = &"hit"
 shape = SubResource("CircleShape2D_lsjdv")
 
 [node name="Hitbox" type="Area2D" parent="."]
-script = ExtResource("2_d6q1m")
+script = ExtResource("3_uin0b")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 shape = SubResource("RectangleShape2D_oyuve")
 
 [node name="AttackArea" type="Area2D" parent="."]
-script = ExtResource("4_q4xuk")
+script = ExtResource("4_iy1lj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
 position = Vector2(-0.5, 4.5)

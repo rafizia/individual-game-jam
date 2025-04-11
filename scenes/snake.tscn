@@ -1,9 +1,9 @@
 [gd_scene load_steps=24 format=3 uid="uid://dctkbwihda7t3"]
 
+[ext_resource type="Script" path="res://scripts/enemy_AI.gd" id="1_8ctd1"]
 [ext_resource type="Texture2D" uid="uid://tingld4xpj0g" path="res://assets/bat_and_snake/bat_and_snake/snake_spritesheet(64x64).png" id="1_skd8n"]
-[ext_resource type="Script" path="res://scripts/snake/snake.gd" id="1_x87rn"]
-[ext_resource type="Script" path="res://scripts/snake/snake_hitbox.gd" id="3_6op2y"]
-[ext_resource type="Script" path="res://scripts/snake/snake_attack_area.gd" id="4_nfkcb"]
+[ext_resource type="Script" path="res://scripts/enemy_hitbox.gd" id="3_vfx5v"]
+[ext_resource type="Script" path="res://scripts/enemy_attack_area.gd" id="4_nivuf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w0mxh"]
 atlas = ExtResource("1_skd8n")
@@ -137,9 +137,11 @@ size = Vector2(44.2857, 20)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mmug8"]
 size = Vector2(36.5, 20)
 
-[node name="Snake" type="CharacterBody2D"]
+[node name="Snake" type="CharacterBody2D" groups=["enemy"]]
 scale = Vector2(0.7, 0.7)
-script = ExtResource("1_x87rn")
+script = ExtResource("1_8ctd1")
+speed = 35
+health = 4
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_gs30m")
@@ -150,15 +152,14 @@ position = Vector2(0, 11)
 shape = SubResource("CircleShape2D_tcsa8")
 
 [node name="Hitbox" type="Area2D" parent="."]
-script = ExtResource("3_6op2y")
+script = ExtResource("3_vfx5v")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 position = Vector2(-0.714287, 11)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_20gxo")
 
 [node name="AttackArea" type="Area2D" parent="."]
-script = ExtResource("4_nfkcb")
+script = ExtResource("4_nivuf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
 position = Vector2(-0.25, 11)

@@ -11,12 +11,15 @@ config_version=5
 [application]
 
 config/name="Individual Game Jam"
+run/main_scene="res://scenes/main_menu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
 RoomManager="*res://scripts/room_manager.gd"
+GameState="*res://scripts/game_state.gd"
+TransitionManager="*res://scenes/transition_manager.tscn"
 
 [input]
 

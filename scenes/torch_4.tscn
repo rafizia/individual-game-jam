@@ -1,0 +1,52 @@
+[gd_scene load_steps=10 format=3 uid="uid://bh77csxrxms8i"]
+
+[ext_resource type="Texture2D" uid="uid://c6o53v53bj4l5" path="res://assets/Top Down Lava Tileset 16x16 Free/FREE TILESET FILES/PROPS ( With Animations )/Torch ( No Light )/torch1.png" id="1_0s8jg"]
+[ext_resource type="Texture2D" uid="uid://by1kbq61anln2" path="res://assets/Top Down Lava Tileset 16x16 Free/FREE TILESET FILES/PROPS ( With Animations )/Torch ( No Light )/torch2.png" id="2_j4oi7"]
+[ext_resource type="Texture2D" uid="uid://butq0pd6s45hj" path="res://assets/Top Down Lava Tileset 16x16 Free/FREE TILESET FILES/PROPS ( With Animations )/Torch ( No Light )/torch3.png" id="3_h15t2"]
+[ext_resource type="Texture2D" uid="uid://dh2dqkjrdhwu0" path="res://assets/Top Down Lava Tileset 16x16 Free/FREE TILESET FILES/PROPS ( With Animations )/Torch ( No Light )/torch4.png" id="4_nqjdv"]
+[ext_resource type="Texture2D" uid="uid://bo8ny4w3atbm5" path="res://assets/Top Down Lava Tileset 16x16 Free/FREE TILESET FILES/PROPS ( With Animations )/Torch ( No Light )/torch5.png" id="5_v4c61"]
+[ext_resource type="Texture2D" uid="uid://cmivs60mdw18g" path="res://assets/Top Down Lava Tileset 16x16 Free/FREE TILESET FILES/PROPS ( With Animations )/Torch ( No Light )/torch6.png" id="6_a6qlj"]
+[ext_resource type="Texture2D" uid="uid://6k1dyps0a6av" path="res://assets/Top Down Lava Tileset 16x16 Free/FREE TILESET FILES/PROPS ( With Animations )/Torch ( No Light )/torch7.png" id="7_ux38q"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hpf1g"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_0s8jg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_j4oi7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_h15t2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_nqjdv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_v4c61")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_a6qlj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ux38q")
+}],
+"loop": true,
+"name": &"default",
+"speed": 7.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gpfxa"]
+size = Vector2(16, 16)
+
+[node name="Torch_4" type="StaticBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_hpf1g")
+autoplay = "default"
+frame_progress = 0.0749188
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 8)
+shape = SubResource("RectangleShape2D_gpfxa")

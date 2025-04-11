@@ -1,0 +1,78 @@
+[gd_scene load_steps=10 format=3 uid="uid://bs34p4t4ucvy3"]
+
+[ext_resource type="Script" path="res://scripts/room_manager.gd" id="1_i7t82"]
+[ext_resource type="Script" path="res://scenes/Level_4/level_4.gd" id="1_jxjmc"]
+[ext_resource type="PackedScene" uid="uid://bojiimcxylcw7" path="res://scenes/player.tscn" id="2_hiala"]
+[ext_resource type="Texture2D" uid="uid://dkdtycvhteiqh" path="res://assets/healthbarUnder.png" id="3_kqq6l"]
+[ext_resource type="Texture2D" uid="uid://4r0or36ccvjg" path="res://assets/healthbarProgress.png" id="4_rby4p"]
+[ext_resource type="Script" path="res://scenes/Level_1/scripts/health.gd" id="5_5s1av"]
+[ext_resource type="Texture2D" uid="uid://dbb318wf311gh" path="res://assets/[CITYPNG.COM]HD Red Pixel Art Heart Icon Transparent PNG - 2500x2500.png" id="7_avumb"]
+[ext_resource type="FontFile" uid="uid://bma6mtaigioet" path="res://assets/Fonts/Raw/Pixellari.ttf" id="7_m03wq"]
+[ext_resource type="AudioStream" uid="uid://45oqva7fwi0s" path="res://assets/Music/Level4.mp3" id="8_b1mf1"]
+
+[node name="Level4" type="Node2D"]
+script = ExtResource("1_jxjmc")
+
+[node name="RoomContainer" type="Node2D" parent="."]
+
+[node name="RoomManager" type="Node" parent="."]
+script = ExtResource("1_i7t82")
+
+[node name="Player" parent="." instance=ExtResource("2_hiala")]
+position = Vector2(-1, 182)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(3.5, 3.5)
+position_smoothing_enabled = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Health" type="TextureProgressBar" parent="CanvasLayer" node_paths=PackedStringArray("player")]
+offset_left = 61.0
+offset_top = 23.0
+offset_right = 125.0
+offset_bottom = 33.0
+scale = Vector2(4, 4)
+texture_under = ExtResource("3_kqq6l")
+texture_progress = ExtResource("4_rby4p")
+script = ExtResource("5_5s1av")
+player = NodePath("../../Player")
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+offset_left = 14.0
+offset_top = 4.0
+offset_right = 94.0
+offset_bottom = 84.0
+texture = ExtResource("7_avumb")
+expand_mode = 1
+
+[node name="TransitionLayer" type="CanvasLayer" parent="."]
+
+[node name="TransitionRect" type="ColorRect" parent="TransitionLayer"]
+offset_left = 1183.0
+offset_top = -28.0
+offset_right = 2377.0
+offset_bottom = 667.0
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer2"]
+visible = false
+offset_left = 166.0
+offset_top = 253.0
+offset_right = 966.0
+offset_bottom = 396.0
+theme_override_fonts/font = ExtResource("7_m03wq")
+theme_override_font_sizes/font_size = 100
+text = "STAGE CLEAR"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_b1mf1")
+volume_db = 7.0
+autoplay = true
+parameters/looping = false

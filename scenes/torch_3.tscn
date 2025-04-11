@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://c3gf2s2mdm54"]
+
+[ext_resource type="Texture2D" uid="uid://cae45epmkogrh" path="res://assets/2D Pixel Dungeon Asset Pack/items and trap_animation/torch/side_torch_1.png" id="1_dlq2a"]
+[ext_resource type="Texture2D" uid="uid://cw0etrfio56lg" path="res://assets/2D Pixel Dungeon Asset Pack/items and trap_animation/torch/side_torch_2.png" id="2_agd01"]
+[ext_resource type="Texture2D" uid="uid://crwouigyds584" path="res://assets/2D Pixel Dungeon Asset Pack/items and trap_animation/torch/side_torch_3.png" id="3_1qtaf"]
+[ext_resource type="Texture2D" uid="uid://clr5f28we1suw" path="res://assets/2D Pixel Dungeon Asset Pack/items and trap_animation/torch/side_torch_4.png" id="4_e4y3h"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_il0tg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_dlq2a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_agd01")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_1qtaf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_e4y3h")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[node name="Torch_3" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_il0tg")
+autoplay = "default"
+frame = 2
+frame_progress = 0.84672
+flip_h = true

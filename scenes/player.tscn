@@ -1,8 +1,9 @@
-[gd_scene load_steps=58 format=3 uid="uid://bojiimcxylcw7"]
+[gd_scene load_steps=59 format=3 uid="uid://bojiimcxylcw7"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_oiftq"]
 [ext_resource type="Texture2D" uid="uid://bo66rr03atq5r" path="res://assets/mystic_woods_free_2.2/sprites/characters/player.png" id="2_kgsbf"]
 [ext_resource type="Script" path="res://scripts/attack_hitbox.gd" id="3_nlw3u"]
+[ext_resource type="AudioStream" uid="uid://c57ayic1rlmu2" path="res://assets/Music/sword-sound-260274.mp3" id="4_uiq1g"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p225a"]
 atlas = ExtResource("2_kgsbf")
@@ -271,7 +272,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_dch0l")
 }],
-"loop": true,
+"loop": false,
 "name": &"dead",
 "speed": 5.0
 }, {
@@ -415,7 +416,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7wd5p"]
-size = Vector2(12, 4.5)
+size = Vector2(14, 4.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4ed4p"]
 size = Vector2(11, 17)
@@ -425,11 +426,11 @@ script = ExtResource("1_oiftq")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_56lxr")
-animation = &"dead"
+animation = &"walk_side"
 autoplay = "idle_down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, 16.25)
+position = Vector2(0, 16.25)
 shape = SubResource("RectangleShape2D_7wd5p")
 
 [node name="AttackHitbox" type="Area2D" parent="."]
@@ -438,6 +439,9 @@ monitoring = false
 script = ExtResource("3_nlw3u")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackHitbox"]
-position = Vector2(7, 10)
+position = Vector2(1, 10)
 shape = SubResource("RectangleShape2D_4ed4p")
 disabled = true
+
+[node name="SwordSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_uiq1g")
