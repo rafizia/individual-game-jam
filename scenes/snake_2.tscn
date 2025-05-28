@@ -194,6 +194,7 @@ position = Vector2(-1, -0.5)
 shape = SubResource("RectangleShape2D_wlboa")
 
 [node name="StunLabel" type="Label" parent="."]
+visible = false
 offset_left = -7.5
 offset_top = -32.0
 offset_right = 73.5

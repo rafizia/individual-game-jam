@@ -28,4 +28,5 @@ func swipe_transition(to_room_path: String, spawn_position: Vector2):
 	tween.tween_property(transition_rect, "position", Vector2(-1920, 0), 0.3).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 
 func swipe_transition_to_next_level():
+	ScoreManager.score = 0
 	TransitionManager.swipe_transition("res://scenes/main_menu.tscn")
