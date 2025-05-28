@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=4 uid="uid://dr7we7786nraw"]
+[gd_scene load_steps=28 format=4 uid="uid://dr7we7786nraw"]
 
 [ext_resource type="Texture2D" uid="uid://ddsgy05kwnefl" path="res://assets/Dungeon Gathering Free Version/Set 4.5.png" id="1_124t1"]
 [ext_resource type="Texture2D" uid="uid://dyjn2vmtwxkw" path="res://assets/Dungeon Gathering Free Version/Set 1.0.png" id="2_2ya6g"]
@@ -14,6 +14,9 @@
 [ext_resource type="PackedScene" uid="uid://cj4ay5ilil0qb" path="res://scenes/candle_stick.tscn" id="12_4bo3q"]
 [ext_resource type="PackedScene" uid="uid://dsv7enxy5bnot" path="res://scenes/flag.tscn" id="13_fbtfj"]
 [ext_resource type="PackedScene" uid="uid://dt5ee5jjidodv" path="res://scenes/ghost_boss.tscn" id="14_43fek"]
+[ext_resource type="FontFile" uid="uid://cnbae18fxsbpb" path="res://assets/Fonts/Raw/VCR_OSD_MONO_1.001.ttf" id="15_2gnk7"]
+[ext_resource type="Texture2D" uid="uid://dkdtycvhteiqh" path="res://assets/healthbarUnder.png" id="16_bbxfn"]
+[ext_resource type="Texture2D" uid="uid://4r0or36ccvjg" path="res://assets/healthbarProgress.png" id="17_jcr7a"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_offfq"]
 texture = ExtResource("1_124t1")
@@ -2207,3 +2210,37 @@ position = Vector2(-441, -215)
 
 [node name="Ghost_Boss" parent="." instance=ExtResource("14_43fek")]
 position = Vector2(-271, -23)
+
+[node name="BossHP" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="BossHP"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -47.0
+offset_top = -73.0
+offset_right = 47.0
+offset_bottom = -50.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("15_2gnk7")
+text = "Ghost Boss"
+
+[node name="Health" type="TextureProgressBar" parent="BossHP"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -320.0
+offset_top = -53.0
+offset_right = -256.0
+offset_bottom = -43.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(10, 4)
+texture_under = ExtResource("16_bbxfn")
+texture_progress = ExtResource("17_jcr7a")
+metadata/_edit_use_anchors_ = true

@@ -1,8 +1,11 @@
-[gd_scene load_steps=6 format=4 uid="uid://c2shi3qf820aj"]
+[gd_scene load_steps=9 format=4 uid="uid://c2shi3qf820aj"]
 
 [ext_resource type="Texture2D" uid="uid://chje03xqpwre1" path="res://assets/Top Down Lava Tileset 16x16 Free/FREE TILESET FILES/freelavatileset-Sheet.png" id="1_ul3bp"]
 [ext_resource type="PackedScene" uid="uid://bh77csxrxms8i" path="res://scenes/torch_4.tscn" id="2_uf2oo"]
 [ext_resource type="PackedScene" uid="uid://b7kpayshx50m0" path="res://scenes/demon_lord.tscn" id="3_2dagg"]
+[ext_resource type="FontFile" uid="uid://cnbae18fxsbpb" path="res://assets/Fonts/Raw/VCR_OSD_MONO_1.001.ttf" id="4_l0k22"]
+[ext_resource type="Texture2D" uid="uid://dkdtycvhteiqh" path="res://assets/healthbarUnder.png" id="5_0ku74"]
+[ext_resource type="Texture2D" uid="uid://4r0or36ccvjg" path="res://assets/healthbarProgress.png" id="6_enrpb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p2oep"]
 texture = ExtResource("1_ul3bp")
@@ -772,3 +775,37 @@ position = Vector2(-217, 254)
 
 [node name="Demon_Lord" parent="." instance=ExtResource("3_2dagg")]
 position = Vector2(-300, 111)
+
+[node name="BossHP" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="BossHP"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -47.0
+offset_top = -73.0
+offset_right = 47.0
+offset_bottom = -50.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("4_l0k22")
+text = "Demon Lord"
+
+[node name="Health" type="TextureProgressBar" parent="BossHP"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -320.0
+offset_top = -53.0
+offset_right = -256.0
+offset_bottom = -43.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(10, 4)
+texture_under = ExtResource("5_0ku74")
+texture_progress = ExtResource("6_enrpb")
+metadata/_edit_use_anchors_ = true
