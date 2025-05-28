@@ -1,9 +1,12 @@
-[gd_scene load_steps=13 format=4 uid="uid://753g8e7wawmi"]
+[gd_scene load_steps=16 format=4 uid="uid://753g8e7wawmi"]
 
 [ext_resource type="Texture2D" uid="uid://cu1ougl1a7f7t" path="res://assets/Pixelarium - GrassLands - Free Version/Pack content/Sprites/Tileset/spr_grass_tileset.png" id="1_aueg3"]
 [ext_resource type="Texture2D" uid="uid://46t7vaqnta6y" path="res://assets/Pixelarium - GrassLands - Free Version/Pack content/Sprites/Tileset/spr_ocean_water_animated_tiles.png" id="2_mvjl6"]
 [ext_resource type="Texture2D" uid="uid://bwduqri5qgwcx" path="res://assets/Pixelarium - GrassLands - Free Version/Pack content/Sprites/Tileset/spr_water_waves_animated_tileset.png" id="3_ap2wl"]
 [ext_resource type="PackedScene" uid="uid://b18q4eawjl2ak" path="res://scenes/slime_boss.tscn" id="4_n85cf"]
+[ext_resource type="FontFile" uid="uid://cnbae18fxsbpb" path="res://assets/Fonts/Raw/VCR_OSD_MONO_1.001.ttf" id="5_3l1x2"]
+[ext_resource type="Texture2D" uid="uid://dkdtycvhteiqh" path="res://assets/healthbarUnder.png" id="5_f8b7b"]
+[ext_resource type="Texture2D" uid="uid://4r0or36ccvjg" path="res://assets/healthbarProgress.png" id="6_4vnix"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tm6t2"]
 texture = ExtResource("1_aueg3")
@@ -2806,3 +2809,37 @@ tile_set = SubResource("TileSet_6qnoh")
 
 [node name="Slime_Boss" parent="." instance=ExtResource("4_n85cf")]
 position = Vector2(-34, 84)
+
+[node name="BossHP" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="BossHP"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -47.0
+offset_top = -73.0
+offset_right = 47.0
+offset_bottom = -50.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("5_3l1x2")
+text = "Slime Boss"
+
+[node name="Health" type="TextureProgressBar" parent="BossHP"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -320.0
+offset_top = -53.0
+offset_right = -256.0
+offset_bottom = -43.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(10, 4)
+texture_under = ExtResource("5_f8b7b")
+texture_progress = ExtResource("6_4vnix")
+metadata/_edit_use_anchors_ = true

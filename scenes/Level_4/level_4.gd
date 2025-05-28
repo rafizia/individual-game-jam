@@ -7,6 +7,7 @@ func _ready():
 	RoomManager.room_container = $RoomContainer
 	RoomManager.player = $Player
 	RoomManager.label = $CanvasLayer2/Label
+	RoomManager.score_label = $CanvasLayer2/ScoreLabelFinish
 	RoomManager.load_room("res://scenes/Level_4/room_1.tscn", Vector2(-240, 211))
 
 func swipe_transition(to_room_path: String, spawn_position: Vector2):
@@ -27,4 +28,5 @@ func swipe_transition(to_room_path: String, spawn_position: Vector2):
 	tween.tween_property(transition_rect, "position", Vector2(-1920, 0), 0.3).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 
 func swipe_transition_to_next_level():
+	ScoreManager.score = 0
 	TransitionManager.swipe_transition("res://scenes/main_menu.tscn")

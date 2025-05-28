@@ -9,7 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://cnwg4wahbcn1b" path="res://assets/Music/Level1.mp3" id="7_raunr"]
 [ext_resource type="Script" path="res://scripts/quit_game.gd" id="7_styxc"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3yo5x"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h5orj"]
 texture = ExtResource("1_bueca")
 1:0/0 = 0
 2:0/0 = 0
@@ -951,7 +951,7 @@ texture = ExtResource("1_bueca")
 28:28/0 = 0
 29:28/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nyj7l"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f7ogd"]
 texture = ExtResource("2_pvn2u")
 1:0/0 = 0
 2:0/0 = 0
@@ -1220,7 +1220,7 @@ texture = ExtResource("2_pvn2u")
 8:22/0 = 0
 9:22/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vks18"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mcxo5"]
 texture = ExtResource("3_rf5uo")
 1:0/0 = 0
 2:0/0 = 0
@@ -1424,9 +1424,9 @@ texture = ExtResource("3_rf5uo")
 
 [sub_resource type="TileSet" id="TileSet_1pf0e"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_3yo5x")
-sources/1 = SubResource("TileSetAtlasSource_nyj7l")
-sources/2 = SubResource("TileSetAtlasSource_vks18")
+sources/0 = SubResource("TileSetAtlasSource_h5orj")
+sources/1 = SubResource("TileSetAtlasSource_f7ogd")
+sources/2 = SubResource("TileSetAtlasSource_mcxo5")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b7jx6"]
 atlas = ExtResource("4_b8f0h")
@@ -1478,6 +1478,21 @@ animations = [{
 "speed": 6.0
 }]
 
+[sub_resource type="Animation" id="Animation_i5ha8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-3, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_0e8f5"]
 resource_name = "walk"
 length = 15.0
@@ -1493,21 +1508,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(-3, 0), Vector2(2658, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_i5ha8"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-3, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_di06q"]
@@ -1531,7 +1531,7 @@ position = Vector2(-62, 392)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_o2e1n")
 autoplay = "default"
-frame_progress = 0.457332
+frame_progress = 0.298755
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Node2D"]
 libraries = {

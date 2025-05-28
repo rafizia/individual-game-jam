@@ -13,6 +13,7 @@ var attack_timer := 0.0
 var is_attacking := false
 
 @onready var attack_area_collision := $AttackArea/CollisionShape2D
+@onready var boss_hp_ui := $"../BossHP/Health"
 
 var player: Node2D = null
 var patrol_dir := Vector2.ZERO
@@ -30,6 +31,9 @@ func _ready():
 	sprite.play("walk")
 
 func _physics_process(delta):
+	boss_hp_ui.value = health
+	boss_hp_ui.max_value = 10
+	
 	if state == State.HIT:
 		velocity = Vector2.ZERO
 		move_and_slide()

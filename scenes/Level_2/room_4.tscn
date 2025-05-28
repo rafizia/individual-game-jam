@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://dp327fd5f1pja"]
+[gd_scene load_steps=19 format=4 uid="uid://dp327fd5f1pja"]
 
 [ext_resource type="Texture2D" uid="uid://cme4ibtmdxvkl" path="res://assets/2D Pixel Dungeon Asset Pack/character and tileset/Dungeon_Tileset.png" id="1_rjm7w"]
 [ext_resource type="Texture2D" uid="uid://cu1ougl1a7f7t" path="res://assets/Pixelarium - GrassLands - Free Version/Pack content/Sprites/Tileset/spr_grass_tileset.png" id="2_4vvbg"]
@@ -9,6 +9,9 @@
 [ext_resource type="Texture2D" uid="uid://bwduqri5qgwcx" path="res://assets/Pixelarium - GrassLands - Free Version/Pack content/Sprites/Tileset/spr_water_waves_animated_tileset.png" id="4_6jaev"]
 [ext_resource type="PackedScene" uid="uid://bixqelua3tnmf" path="res://scenes/torch_2.tscn" id="4_qjec4"]
 [ext_resource type="PackedScene" uid="uid://dsv7enxy5bnot" path="res://scenes/flag.tscn" id="5_sfm5u"]
+[ext_resource type="FontFile" uid="uid://cnbae18fxsbpb" path="res://assets/Fonts/Raw/VCR_OSD_MONO_1.001.ttf" id="10_0hmas"]
+[ext_resource type="Texture2D" uid="uid://dkdtycvhteiqh" path="res://assets/healthbarUnder.png" id="11_ci7r5"]
+[ext_resource type="Texture2D" uid="uid://4r0or36ccvjg" path="res://assets/healthbarProgress.png" id="12_5q7v6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hrru5"]
 texture = ExtResource("1_rjm7w")
@@ -1605,3 +1608,37 @@ position = Vector2(87, -104)
 
 [node name="Skeleton Boss" parent="." instance=ExtResource("3_nlfh8")]
 position = Vector2(1, 22)
+
+[node name="BossHP" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="BossHP"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -47.0
+offset_top = -73.0
+offset_right = 47.0
+offset_bottom = -50.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("10_0hmas")
+text = "Skeleton Boss"
+
+[node name="Health" type="TextureProgressBar" parent="BossHP"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -320.0
+offset_top = -53.0
+offset_right = -256.0
+offset_bottom = -43.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(10, 4)
+texture_under = ExtResource("11_ci7r5")
+texture_progress = ExtResource("12_5q7v6")
+metadata/_edit_use_anchors_ = true
