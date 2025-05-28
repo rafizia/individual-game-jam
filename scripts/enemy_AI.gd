@@ -8,6 +8,7 @@ extends CharacterBody2D
 @export var enemy_id := ""
 @export var room_name := ""
 @export var player_path := "Level1/Player"
+@export var score := 10
 
 var player: Node2D = null
 var patrol_dir := Vector2.ZERO
@@ -96,4 +97,5 @@ func die():
 	sprite.play("dead")
 	await sprite.animation_finished
 	RoomManager.mark_enemy_defeated(room_name, enemy_id)
+	ScoreManager.add_score(score)
 	queue_free()

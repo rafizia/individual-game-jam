@@ -196,6 +196,7 @@ size = Vector2(16, 31.5)
 [node name="Orc" type="CharacterBody2D" groups=["enemy"]]
 script = ExtResource("1_ha3gv")
 health = 15
+score = 50
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_5im0k")

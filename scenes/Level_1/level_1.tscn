@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://1jylrr7cosca"]
+[gd_scene load_steps=11 format=3 uid="uid://1jylrr7cosca"]
 
 [ext_resource type="Script" path="res://scenes/Level_1/level_1.gd" id="1_vymat"]
 [ext_resource type="PackedScene" uid="uid://bojiimcxylcw7" path="res://scenes/player.tscn" id="3_jsyg0"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://4r0or36ccvjg" path="res://assets/healthbarProgress.png" id="6_txt0t"]
 [ext_resource type="Texture2D" uid="uid://dbb318wf311gh" path="res://assets/[CITYPNG.COM]HD Red Pixel Art Heart Icon Transparent PNG - 2500x2500.png" id="7_5elmg"]
 [ext_resource type="FontFile" uid="uid://bma6mtaigioet" path="res://assets/Fonts/Raw/Pixellari.ttf" id="7_i8ay2"]
+[ext_resource type="FontFile" uid="uid://cnbae18fxsbpb" path="res://assets/Fonts/Raw/VCR_OSD_MONO_1.001.ttf" id="7_n4p0e"]
 [ext_resource type="AudioStream" uid="uid://cnwg4wahbcn1b" path="res://assets/Music/Level1.mp3" id="8_jq0hd"]
 
 [node name="Level1" type="Node2D"]
@@ -38,6 +39,15 @@ texture_progress = ExtResource("6_txt0t")
 script = ExtResource("4_hd8ho")
 player = NodePath("../../Player")
 metadata/_edit_use_anchors_ = true
+
+[node name="Score" type="Label" parent="CanvasLayer"]
+offset_left = 17.0
+offset_top = 85.0
+offset_right = 78.0
+offset_bottom = 108.0
+theme_override_fonts/font = ExtResource("7_n4p0e")
+theme_override_font_sizes/font_size = 30
+text = "Score: 0"
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
 offset_left = 14.0

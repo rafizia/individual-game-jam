@@ -217,6 +217,7 @@ size = Vector2(28, 32.5)
 [node name="Minotaur" type="CharacterBody2D" groups=["enemy"]]
 script = ExtResource("1_l2rhj")
 health = 10
+score = 20
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_b7aj5")

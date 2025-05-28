@@ -196,6 +196,7 @@ size = Vector2(18, 31.25)
 [node name="Ghost" type="CharacterBody2D" groups=["enemy"]]
 script = ExtResource("1_6wmcf")
 health = 5
+score = 15
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_7egqt")

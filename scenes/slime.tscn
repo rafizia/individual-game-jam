@@ -153,6 +153,7 @@ size = Vector2(13, 29)
 [node name="Slime" type="CharacterBody2D" groups=["enemy"]]
 scale = Vector2(0.5, 0.5)
 script = ExtResource("1_8evyq")
+score = 20
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_livp8")

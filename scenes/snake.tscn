@@ -142,6 +142,7 @@ scale = Vector2(0.7, 0.7)
 script = ExtResource("1_8ctd1")
 speed = 35
 health = 4
+score = 20
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_gs30m")

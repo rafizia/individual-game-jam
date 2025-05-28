@@ -6,6 +6,7 @@ signal healthChanged
 @onready var anim_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var attack_hitbox = $AttackHitbox
 @onready var collision = $CollisionShape2D
+@onready var score_label = $"../CanvasLayer/Score"
 
 var last_direction: Vector2 = Vector2.DOWN
 var is_attacking: bool = false
@@ -19,6 +20,7 @@ var is_dead = false
 
 func _physics_process(delta: float) -> void:
 	var input_vector = Vector2.ZERO
+	score_label.text = "Score: %d" % ScoreManager.score
 	
 	if knockback_timer > 0:
 		velocity = knockback_velocity

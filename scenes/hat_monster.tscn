@@ -161,6 +161,7 @@ size = Vector2(21, 18)
 [node name="Hat_Monster" type="CharacterBody2D" groups=["enemy"]]
 script = ExtResource("1_58onu")
 health = 5
+score = 20
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_rflg8")

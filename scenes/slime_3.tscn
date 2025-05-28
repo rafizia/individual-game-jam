@@ -198,6 +198,7 @@ size = Vector2(18, 13)
 [node name="Slime_3" type="CharacterBody2D" groups=["enemy"]]
 script = ExtResource("1_4biko")
 health = 8
+score = 30
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_6w1wf")

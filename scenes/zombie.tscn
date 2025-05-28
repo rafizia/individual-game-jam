@@ -162,6 +162,7 @@ size = Vector2(10, 32)
 scale = Vector2(0.8, 0.8)
 script = ExtResource("1_bagxp")
 health = 4
+score = 20
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_45r6a")
