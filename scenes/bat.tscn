@@ -218,7 +218,7 @@ size = Vector2(13, 29)
 [node name="Bat" type="CharacterBody2D" groups=["enemy"]]
 scale = Vector2(0.8, 0.8)
 script = ExtResource("1_r3pq8")
-score = 15
+score = 150
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_2yl1a")
@@ -240,6 +240,16 @@ script = ExtResource("6_siqbc")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
 position = Vector2(-0.5, 4.5)
 shape = SubResource("RectangleShape2D_x0rek")
+
+[node name="StunLabel" type="Label" parent="."]
+visible = false
+offset_left = -7.5
+offset_top = -26.25
+offset_right = 73.5
+offset_bottom = 1.75
+scale = Vector2(0.2, 0.2)
+theme_override_font_sizes/font_size = 20
+text = "Stunned"
 
 [connection signal="area_entered" from="Hitbox" to="Hitbox" method="_on_area_entered"]
 [connection signal="body_entered" from="AttackArea" to="AttackArea" method="_on_body_entered"]

@@ -7,7 +7,8 @@ func _ready():
 	RoomManager.room_container = $RoomContainer
 	RoomManager.player = $Player
 	RoomManager.label = $CanvasLayer2/Label
-	RoomManager.load_room("res://scenes/Level_1/room_4.tscn", Vector2(-161, 226))
+	RoomManager.score_label = $CanvasLayer2/ScoreLabelFinish
+	RoomManager.load_room("res://scenes/Level_1/room_1.tscn", Vector2(-161, 226))
 
 func swipe_transition(to_room_path: String, spawn_position: Vector2):
 	transition_rect.position = Vector2(1920, 0)

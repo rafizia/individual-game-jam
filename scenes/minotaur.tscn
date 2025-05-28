@@ -217,7 +217,7 @@ size = Vector2(28, 32.5)
 [node name="Minotaur" type="CharacterBody2D" groups=["enemy"]]
 script = ExtResource("1_l2rhj")
 health = 10
-score = 20
+score = 200
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_b7aj5")
@@ -241,6 +241,16 @@ damage = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
 position = Vector2(2, 8.75)
 shape = SubResource("RectangleShape2D_t1yft")
+
+[node name="StunLabel" type="Label" parent="."]
+visible = false
+offset_left = -7.5
+offset_top = -26.25
+offset_right = 73.5
+offset_bottom = 1.75
+scale = Vector2(0.2, 0.2)
+theme_override_font_sizes/font_size = 20
+text = "Stunned"
 
 [connection signal="area_entered" from="Hitbox" to="Hitbox" method="_on_area_entered"]
 [connection signal="body_entered" from="AttackArea" to="AttackArea" method="_on_body_entered"]

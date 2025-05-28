@@ -9,23 +9,46 @@ extends CharacterBody2D
 @export var room_name := ""
 @export var player_path := "Level1/Player"
 @export var score := 10
+@export var stun_duration := 2.0
+@export var hits_to_stun := 3
 
 var player: Node2D = null
 var patrol_dir := Vector2.ZERO
 var patrol_origin := Vector2.ZERO
 var patrol_timer := 0.0
+var stun_timer := 0.0
+var is_stunned := false
+var hit_count := 0
 
 enum State { IDLE, PATROL, CHASE, HIT }
 var state: State = State.PATROL
 var is_hit := false
 
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var attack_area = $AttackArea
+@onready var stun_label = $StunLabel
 
 func _ready():
 	pick_new_patrol_direction()
 	sprite.play("walk")
 
 func _physics_process(delta):
+	if is_stunned:
+		stun_timer -= delta
+		if stun_timer <= 0:
+			is_stunned = false
+			hit_count = 0
+			
+			if attack_area:
+				attack_area.set_deferred("monitoring", true)
+			
+			if stun_label:
+				stun_label.visible = false
+		else:
+			velocity = Vector2.ZERO
+			move_and_slide()
+			return
+			
 	if state == State.HIT:
 		velocity = Vector2.ZERO
 		move_and_slide()
@@ -75,14 +98,17 @@ func pick_new_patrol_direction():
 	patrol_timer = patrol_delay
 
 func take_damage(amount):
-	if is_hit:
+	if is_hit or is_stunned:
 		return
 
 	health -= amount
-	print(health)
 	is_hit = true
 	state = State.HIT
 	sprite.play("hit")
+	
+	hit_count += 1
+	if hit_count >= hits_to_stun and health > 0:
+		stun()
 
 	if health <= 0:
 		sprite.play("hit")
@@ -94,8 +120,21 @@ func take_damage(amount):
 		state = State.IDLE
 
 func die():
+	if attack_area:
+		attack_area.set_deferred("monitoring", false)
 	sprite.play("dead")
 	await sprite.animation_finished
 	RoomManager.mark_enemy_defeated(room_name, enemy_id)
 	ScoreManager.add_score(score)
 	queue_free()
+	
+func stun():
+	is_stunned = true
+	stun_timer = stun_duration
+	state = State.IDLE
+	
+	if stun_label:
+		stun_label.visible = true
+
+	if attack_area:
+		attack_area.set_deferred("monitoring", false)

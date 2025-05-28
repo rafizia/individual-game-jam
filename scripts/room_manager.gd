@@ -6,6 +6,7 @@ var current_room: Node = null
 var defeated_enemies = {}
 var broke_objects = {}
 var label: Node
+var score_label: Node
 	
 func load_room(path: String, spawn_position: Vector2):	
 	if current_room and is_instance_valid(current_room):
@@ -60,8 +61,11 @@ func is_object_broke(room_name: String, object_id: String) -> bool:
 	return room_name in broke_objects and object_id in broke_objects[room_name]
 
 func stage_clear():
+	score_label.text = "Current Score: %d" % ScoreManager.score
+	score_label.visible = true
 	label.visible = true
 	await get_tree().create_timer(5.0).timeout
+	score_label.visible = false
 	label.visible = false
 
 	var level_scene = get_tree().current_scene
